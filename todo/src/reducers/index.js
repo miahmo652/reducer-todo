@@ -9,19 +9,6 @@ todos: [
 
     
   };
-  const toggleItem = (id, todoList) => {
-    const newList = todoList.map(item => {
-      if(item.id === id){
-        return {
-          ...item,
-          completed: !item.completed
-        }
-      } else {
-        return item;
-      }
-    })
-    return newList
-  }
 
   export const todoReducer = (state, action) => {
     switch (action.type) {
@@ -34,27 +21,22 @@ todos: [
         ]
         
         };
-      case "TOGGLE_COMPLETE":
+      case "TOGGLE_COMPLETED":
         return {
           ...state,
        todos: state.todos.map(todo=>{
-         if(todo.id === todo.id){
+         if(action.payload === todo.id){
            
            return {
              ...todo,
              completed: !todo.completed 
            }
          } else {
-           return state.todo;
+           return todo
          }
        })
         }
 
-      /*  case "TOGGLE_COMPLETED":
-          return {
-            todos: toggleItem(action.payload, state.todos)
-          }
-*/
   case "REMOVE_COMPLETED":
     return {
       ...state,

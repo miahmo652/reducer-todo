@@ -8,11 +8,11 @@ const TodoList = props => {
               
             <div onClick={() => {
                 props.dispatch({
-                  type: "TOGGLE_COMPLETE",
+                  type: "TOGGLE_COMPLETED",
                   payload: todo.id
                 })
               }}>
-                <p key={todo.id}>{todo.item}</p>
+                <p>{todo.item}</p>
               </div>
             );
           })}
